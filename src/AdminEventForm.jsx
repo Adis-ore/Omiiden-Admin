@@ -66,6 +66,7 @@ const AdminEventForm = ({ adminCreds }) => {
       {error && <div className="text-red-500">{error}</div>}
       {success && <div className="text-green-600">{success}</div>}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* ...existing fields... */}
         <div>
           <label className="block font-semibold">Title</label>
           <input name="title" value={form.title} onChange={handleChange} className="w-full border rounded-lg px-3 py-2" required />
@@ -116,6 +117,15 @@ const AdminEventForm = ({ adminCreds }) => {
         <div>
           <label className="block font-semibold">Image</label>
           <input type="file" accept="image/*" onChange={handleImage} className="w-full" />
+          {form.image_url && (
+            <div className="mt-2">
+              <img
+                src={form.image_url}
+                alt="Preview"
+                className="w-full h-40 object-cover rounded-lg border"
+              />
+            </div>
+          )}
         </div>
       </div>
       <button type="submit" className="w-full bg-gradient-to-r from-green-600 to-red-600 text-white py-2 rounded-lg font-semibold hover:from-green-700 hover:to-red-700 transition-all duration-300" disabled={loading}>

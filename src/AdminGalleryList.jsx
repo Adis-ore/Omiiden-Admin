@@ -59,6 +59,7 @@ const AdminGalleryList = ({ adminCreds }) => {
           <table className="min-w-full bg-white border rounded-lg">
             <thead>
               <tr>
+                <th className="py-2 px-4 border-b">Image</th>
                 <th className="py-2 px-4 border-b">Type</th>
                 <th className="py-2 px-4 border-b">Category</th>
                 <th className="py-2 px-4 border-b">Date</th>
@@ -69,6 +70,13 @@ const AdminGalleryList = ({ adminCreds }) => {
             <tbody>
               {gallery.map(item => (
                 <tr key={item.id} className="hover:bg-gray-50">
+                  <td className="py-2 px-4 border-b">
+                    {item.image_url ? (
+                      <img src={item.image_url} alt={item.category} className="w-16 h-12 object-cover rounded" />
+                    ) : (
+                      <span className="text-gray-400">No Image</span>
+                    )}
+                  </td>
                   <td className="py-2 px-4 border-b">{item.type}</td>
                   <td className="py-2 px-4 border-b">{item.category}</td>
                   <td className="py-2 px-4 border-b">{item.date}</td>
