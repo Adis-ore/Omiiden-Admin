@@ -59,6 +59,7 @@ const AdminEventList = ({ adminCreds }) => {
           <table className="min-w-full bg-white border rounded-lg">
             <thead>
               <tr>
+                <th className="py-2 px-4 border-b">Image</th>
                 <th className="py-2 px-4 border-b">Title</th>
                 <th className="py-2 px-4 border-b">Date</th>
                 <th className="py-2 px-4 border-b">Type</th>
@@ -69,6 +70,13 @@ const AdminEventList = ({ adminCreds }) => {
             <tbody>
               {events.map(event => (
                 <tr key={event.id} className="hover:bg-gray-50">
+                  <td className="py-2 px-4 border-b">
+                    {event.image_url ? (
+                      <img src={event.image_url} alt={event.title} className="w-16 h-12 object-cover rounded" />
+                    ) : (
+                      <span className="text-gray-400">No Image</span>
+                    )}
+                  </td>
                   <td className="py-2 px-4 border-b">{event.title}</td>
                   <td className="py-2 px-4 border-b">{event.date}</td>
                   <td className="py-2 px-4 border-b">{event.type}</td>
