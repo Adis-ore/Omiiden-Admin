@@ -116,7 +116,7 @@ const AdminEventForm = ({ adminCreds }) => {
         </div>
         <div>
           <label className="block font-semibold">Image</label>
-          <input type="file" accept="image/*" onChange={handleImage} className="w-full" />
+          <input type="file" accept="image/*" required onChange={handleImage} className="w-full" />
           {form.image_url && (
             <div className="mt-2">
               <img
